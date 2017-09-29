@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: monospace;
+}
+.cell-row {
+  margin: 10px 0px 10px 0px;
+}
+.cell-row .cell{
+  display: inline;
+  outline: 2px solid black;
+  padding: 0px 10px 0px 10px;
+  font-size: 30px;
+}
+.row .grid{
+  display: inline-block;
+  outline: 3px solid black;
+  margin: 25px;
+}
