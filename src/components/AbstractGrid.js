@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AbstractGrid extends Component {
   constructor(props){
@@ -9,9 +10,9 @@ class AbstractGrid extends Component {
       winner: null
     }
   }
-  handleClick(pos, player){
+  handleClick(pos){
     let board = this.state.board;
-    board[pos[0],pos[1]] = player;
+    board[pos[0],pos[1]] = this.props.player;
     this.setState({board: board})
   }
   checkWinner(){
@@ -36,6 +37,11 @@ class AbstractGrid extends Component {
       this.setState({winner:board[0][2]});
     }
   }
+}
+
+AbstractGrid.propTypes = {
+  player: PropTypes.number.isRequired,
+  nextTurn: PropTypes.func.isRequired
 }
 
 export default AbstractGrid;

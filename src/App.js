@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import BigGrid from './components/BigGrid.js';
+import GameMaster from './components/GameMaster.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <BigGrid />
+        <GameMaster />
       </div>
     );
   }
