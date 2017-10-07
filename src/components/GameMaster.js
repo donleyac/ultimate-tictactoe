@@ -10,9 +10,12 @@ class GameMaster extends Component {
   nextTurn(){
     this.setState({player:this.state.player*-1})
   }
+  handleWinner(){
+    console.log("Winner: " + this.state.player);
+  }
   render(){
     return (
-      <BigGrid nextTurn={this.nextTurn} player={this.state.player} />
+      <BigGrid handleWinner={this.handleWinner} nextTurn={this.nextTurn} player={this.state.player} />
     )
   }
 }
