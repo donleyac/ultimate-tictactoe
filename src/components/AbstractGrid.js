@@ -12,7 +12,7 @@ class AbstractGrid extends Component {
   }
   handleClick(pos){
     let board = this.state.board;
-    board[pos[0],pos[1]] = this.props.player;
+    board[pos[0]][pos[1]]= this.props.player;
     this.setState({board: board})
   }
   checkWinner(){

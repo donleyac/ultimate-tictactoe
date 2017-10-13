@@ -12,10 +12,7 @@ import socketMiddleware from './socketMiddleware.js';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-registerServiceWorker();
-
-const socket = io(`${location.protocol}//${location.hostname}:8090`);
-
+const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
 const createStoreWithMiddleware = applyMiddleware(
   socketMiddleware(socket)
 )(createStore);
@@ -25,6 +22,7 @@ socket.on('state', state =>
   store.dispatch(setState(state))
 );
 
+registerServiceWorker();
 ReactDOM.render(
 <Provider store={store}>
     {routes}

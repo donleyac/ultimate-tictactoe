@@ -9,8 +9,9 @@ class Grid extends AbstractGrid {
     this.filling = this.props.fill?this.props.fill: "-";
   }
   handleClick(cell) {
-    console.log(this.props.loc);
-    console.log(cell);
+    super.handleClick(cell);
+    super.checkWinner();
+    this.state.winner?this.props.setGridState(this.props.loc):null;
   }
   render() {
     return <div className="grid">
@@ -18,7 +19,7 @@ class Grid extends AbstractGrid {
           return <div className="cell-row" key={r_index}>
               {row.map((elem, index)=>{
                 return (<Cell handleClick={this.handleClick.bind(this)}
-                          loc={[r_index,index]} key={index}>{this.filling}</Cell>)
+                          loc={[r_index,index]} key={index}>{elem}</Cell>)
               })}
             </div>
         })}
