@@ -1,9 +1,8 @@
-import React  from 'react';
-import AbstractGrid from './AbstractGrid.js';
+import React, {PureComponent} from 'react';
 import Cell from './Cell.js';
 import PropTypes from 'prop-types';
 
-class Grid extends AbstractGrid {
+class Grid extends PureComponent {
   constructor(props){
     super(props);
     this.filling = this.props.fill?this.props.fill: "-";

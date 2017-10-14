@@ -1,4 +1,5 @@
-import React, {PureComponent, PropTypes} from 'react';
+import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import {List, is} from 'immutable';
 import {connect} from 'react-redux';
 import * as actionCreators from './../action_creator.js';
@@ -10,7 +11,7 @@ export class Game extends PureComponent {
     let winner = this.props.winner;
     let player = this.props.player;
     return (
-      <BigGrid nextTurn={this.nextTurn} player={this.state.player} />
+      <BigGrid placePiece={this.props.placePiece} board={this.props.board}/>
     );
   }
 }
@@ -27,4 +28,4 @@ function mapStateToProps(state) {
     player: state.get('player') || 0
   };
 }
-export default GameContainer = connect(mapStateToProps, actionCreators)(Game);
+export default connect(mapStateToProps, actionCreators)(Game);

@@ -36,7 +36,6 @@
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -93,6 +92,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "react-router-dom": "^4.2.2",
     "socket.io-client": "^2.0.3"
   }
 }
