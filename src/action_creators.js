@@ -15,13 +15,12 @@ export function placePiece(grid, cell, playerId) {
 export function localSwitch(){
   return {
     meta: {remote: true},
-    type: 'LOCAL_SWITCH'
+    type: 'SWITCH'
   }
 }
-
 export function resetGame() {
   return {
     meta: {remote: true},
-    type: 'RESET'
+    type: 'INITIAL_STATE'
   };
 }

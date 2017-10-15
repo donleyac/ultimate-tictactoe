@@ -11,12 +11,18 @@ export class Game extends PureComponent {
     let winner = this.props.winner;
     let player = this.props.player;
     return (
-      <BigGrid placePiece={this.props.placePiece}
-        board={this.props.board}
-        player={this.props.player}
-        playerId={this.props.local_player}
-        localSwitch={this.props.localSwitch}
-      />
+      <div>
+        {winner===0?(<BigGrid placePiece={this.props.placePiece}
+            board={this.props.board}
+            player={this.props.player}
+            playerId={this.props.local_player}
+            localSwitch={this.props.localSwitch}
+          />): (<div>
+            <button onClick={this.props.resetGame}>Reset Game</button>
+            Winner: Player {winner}</div>)
+        }
+      </div>
+
     );
   }
 }
@@ -25,7 +31,8 @@ Game.PropTypes = {
   winner: PropTypes.number.isRequired,
   player: PropTypes.number.isRequired,
   placePiece: PropTypes.func.isRequired,
-  localSwitch: PropTypes.func.isRequired
+  localSwitch: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
   return {

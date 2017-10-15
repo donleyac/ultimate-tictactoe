@@ -11,15 +11,24 @@ class Cell extends Component {
       1: 'X',
       "-1": 'O'
     }
+    let cell = this.props.selectable?
+          (<div
+            onClick={this.handleClick.bind(this)}
+            className="cell">{conversion[this.props.children]}
+          </div>):
+          (<div
+            className="cell">{conversion[this.props.children]}
+          </div>);
     return (
-      <div onClick={this.handleClick.bind(this)} className="cell">{conversion[this.props.children]}</div>
+      cell
     );
   }
 }
 
 Cell.propTypes = {
   loc: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  selectable: PropTypes.bool.isRequired
 }
 
 export default Cell;

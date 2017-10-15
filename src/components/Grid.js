@@ -13,11 +13,12 @@ class Grid extends PureComponent {
   render() {
     let classVal = this.props.selectable?"select ":" ";
     classVal=classVal+"cell-row";
+    classVal+=this.props.winner!==0?" winner"+this.props.winner:" ";
     return <div className="grid">
         {this.props.board.map((row, r_index)=>{
           return <div className={classVal} key={r_index}>
               {row.map((elem, index)=>{
-                return (<Cell handleClick={this.handleClick.bind(this, [r_index, index])}
+                return (<Cell selectable={this.props.selectable} handleClick={this.handleClick.bind(this, [r_index, index])}
                           loc={[r_index,index]} key={index}>{elem}</Cell>)
               })}
             </div>
@@ -33,7 +34,8 @@ Grid.propTypes = {
   board:  PropTypes.object.isRequired,
   selectable: PropTypes.bool.isRequired,
   placePiece: PropTypes.func.isRequired,
-  localSwitch: PropTypes.func.isRequired
+  localSwitch: PropTypes.func.isRequired,
+  winner: PropTypes.number.isRequired
 }
 
 export default Grid;

@@ -22,3 +22,9 @@ body {
   background-color: green;
   cursor: pointer;
 }
+.winner1 .cell {
+  background-color: blue;
+}
+.winner-1 .cell {
+  background-color: red;
+}
