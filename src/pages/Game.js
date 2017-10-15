@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {List, is} from 'immutable';
 import {connect} from 'react-redux';
-import * as actionCreators from './../action_creator.js';
+import * as actionCreators from './../action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 
 export class Game extends PureComponent {
@@ -11,7 +11,12 @@ export class Game extends PureComponent {
     let winner = this.props.winner;
     let player = this.props.player;
     return (
-      <BigGrid placePiece={this.props.placePiece} board={this.props.board}/>
+      <BigGrid placePiece={this.props.placePiece}
+        board={this.props.board}
+        player={this.props.player}
+        playerId={this.props.local_player}
+        localSwitch={this.props.localSwitch}
+      />
     );
   }
 }
@@ -19,13 +24,15 @@ Game.PropTypes = {
   board:  PropTypes.object.isRequired,
   winner: PropTypes.number.isRequired,
   player: PropTypes.number.isRequired,
-  placePiece: PropTypes.func.isRequired
+  placePiece: PropTypes.func.isRequired,
+  localSwitch: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
   return {
     board: state.get('board') || new List(),
     winner: state.get('winner') || 0,
-    player: state.get('player') || 0
+    player: state.get('player') || 0,
+    local_player: state.get('local_player') || 1
   };
 }
 export default connect(mapStateToProps, actionCreators)(Game);

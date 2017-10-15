@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.row .grid {
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+}
+.cell-row {
+  margin: 10px 0px 10px 0px;
+}
+.cell-row .cell{
+  display: inline;
+  margin: 0px 5px 0px 5px;
+  padding: 0px 5px 0px 5px;
+  font-size: 30px;
+  color: white;
+  background-color: grey;
+  font-family: monospace;
+}
+.select .cell {
+  background-color: green;
+  cursor: pointer;
+}

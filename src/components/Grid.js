@@ -3,21 +3,21 @@ import Cell from './Cell.js';
 import PropTypes from 'prop-types';
 
 class Grid extends PureComponent {
-  constructor(props){
-    super(props);
-    this.filling = this.props.fill?this.props.fill: "-";
-  }
-  handleClick(cell) {
-    super.handleClick(cell);
-    super.checkWinner();
-    this.state.winner?this.props.setGridState(this.props.loc):null;
+  handleClick(cell){
+    if(this.props.player===this.props.playerId){
+      this.props.placePiece(this.props.loc, cell, this.props.player);
+    }
+    console.log(this.props);
+    this.props.localSwitch();
   }
   render() {
+    let classVal = this.props.selectable?"select ":" ";
+    classVal=classVal+"cell-row";
     return <div className="grid">
-        {this.state.board.map((row, r_index)=>{
-          return <div className="cell-row" key={r_index}>
+        {this.props.board.map((row, r_index)=>{
+          return <div className={classVal} key={r_index}>
               {row.map((elem, index)=>{
-                return (<Cell handleClick={this.handleClick.bind(this)}
+                return (<Cell handleClick={this.handleClick.bind(this, [r_index, index])}
                           loc={[r_index,index]} key={index}>{elem}</Cell>)
               })}
             </div>
@@ -27,8 +27,13 @@ class Grid extends PureComponent {
 }
 
 Grid.propTypes = {
-  loc: PropTypes.array,
-  fill: PropTypes.string
+  player: PropTypes.number.isRequired,
+  playerId: PropTypes.number.isRequired,
+  loc: PropTypes.array.isRequired,
+  board:  PropTypes.object.isRequired,
+  selectable: PropTypes.bool.isRequired,
+  placePiece: PropTypes.func.isRequired,
+  localSwitch: PropTypes.func.isRequired
 }
 
 export default Grid;

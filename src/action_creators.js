@@ -12,6 +12,13 @@ export function placePiece(grid, cell, playerId) {
   };
 }
 
+export function localSwitch(){
+  return {
+    meta: {remote: true},
+    type: 'LOCAL_SWITCH'
+  }
+}
+
 export function resetGame() {
   return {
     meta: {remote: true},

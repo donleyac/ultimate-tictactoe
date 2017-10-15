@@ -4,12 +4,19 @@ import Grid from './Grid.js';
 
 class BigGrid extends PureComponent {
   render() {
-    return <div>
+    return <div className="big-grid">
         {this.props.board.map((row,r_index)=>{
           return <div className="row" key={r_index}>
               {row.map((elem,index)=>{
-                return (<Grid placePiece={this.placePiece}
-                  loc={[r_index,index]} key={index} />)
+                return (<Grid
+                  player={this.props.player}
+                  playerId={this.props.playerId}
+                  placePiece={this.props.placePiece}
+                  board={elem.get("board")}
+                  selectable={elem.get("selectable")}
+                  loc={[r_index,index]}
+                  localSwitch={this.props.localSwitch}
+                  key={index} />)
               })}
             </div>
         })}
@@ -18,7 +25,10 @@ class BigGrid extends PureComponent {
 }
 BigGrid.PropTypes = {
   board:  PropTypes.object.isRequired,
-  placePiece: PropTypes.func.isRequired
+  placePiece: PropTypes.func.isRequired,
+  player: PropTypes.number.isRequired,
+  playerId: PropTypes.number.isRequired,
+  localSwitch: PropTypes.func.isRequired
 }
 
 export default BigGrid;

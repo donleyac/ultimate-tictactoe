@@ -5,7 +5,8 @@ export default function(props){
     <div id="home">
       <h1>Welcome to Ultimate TicTacToe</h1>
       <div className="row-items">
-        <Link to="/game">Play Game</Link>
+        <Link to="/game">Local Game</Link>
+        <Link to="/online">Online Game</Link>
       </div>
     </div>
   )
