@@ -1,25 +1,22 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import {List, is} from 'immutable';
+import {List} from 'immutable';
 import {connect} from 'react-redux';
 import * as actionCreators from './../action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 
 export class Game extends PureComponent {
   render() {
-    let board = this.props.board;
-    let winner = this.props.winner;
-    let player = this.props.player;
     return (
       <div>
-        {winner===0?(<BigGrid placePiece={this.props.placePiece}
+        {this.props.winner===0?(<BigGrid placePiece={this.props.placePiece}
             board={this.props.board}
             player={this.props.player}
             playerId={this.props.local_player}
             localSwitch={this.props.localSwitch}
           />): (<div>
             <button onClick={this.props.resetGame}>Reset Game</button>
-            Winner: Player {winner}</div>)
+            Winner: Player {this.props.winner}</div>)
         }
       </div>
 
