@@ -11,13 +11,14 @@ class Cell extends Component {
       1: 'X',
       "-1": 'O'
     }
+    let classVal = this.props.classVal + " cell";
     let cell = this.props.selectable?
           (<div
             onClick={this.handleClick.bind(this)}
-            className="cell">{conversion[this.props.children]}
+            className={classVal}>{conversion[this.props.children]}
           </div>):
           (<div
-            className="cell">{conversion[this.props.children]}
+            className={classVal}>{conversion[this.props.children]}
           </div>);
     return (
       cell
@@ -26,7 +27,7 @@ class Cell extends Component {
 }
 
 Cell.propTypes = {
-  loc: PropTypes.array.isRequired,
+  loc: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
   selectable: PropTypes.bool.isRequired
 }

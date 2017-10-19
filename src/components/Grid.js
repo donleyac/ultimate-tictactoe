@@ -7,30 +7,33 @@ class Grid extends PureComponent {
     if(this.props.player===this.props.playerId){
       this.props.placePiece(this.props.loc, cell, this.props.player);
     }
-    console.log(this.props);
     this.props.localSwitch();
   }
   render() {
     let classVal = this.props.selectable?"select ":" ";
     classVal=classVal+"cell-row";
     classVal+=this.props.winner!==0?" winner"+this.props.winner:" ";
+
     return <div className="grid">
-        {this.props.board.map((row, r_index)=>{
-          return <div className={classVal} key={r_index}>
-              {row.map((elem, index)=>{
-                return (<Cell selectable={this.props.selectable} handleClick={this.handleClick.bind(this, [r_index, index])}
-                          loc={[r_index,index]} key={index}>{elem}</Cell>)
-              })}
-            </div>
-        })}
-      </div>
+      {[...Array(3)].map((r_u, r) => {
+        return <div className={classVal} key={r}>
+          {[...Array(3)].map((e_u, i) => {
+            let index = r*3+i;
+            let elem = this.props.board.get(index);
+            return <Cell selectable={this.props.selectable}
+                      handleClick={this.handleClick.bind(this,index)}
+                      loc={index} key={index}>{elem}</Cell>
+          })}
+        </div>
+      })}
+    </div>
   }
 }
 
 Grid.propTypes = {
   player: PropTypes.number.isRequired,
   playerId: PropTypes.number.isRequired,
-  loc: PropTypes.array.isRequired,
+  loc: PropTypes.number.isRequired,
   board:  PropTypes.object.isRequired,
   selectable: PropTypes.bool.isRequired,
   placePiece: PropTypes.func.isRequired,
