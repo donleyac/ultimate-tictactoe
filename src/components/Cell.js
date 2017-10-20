@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {ui_mapping} from './../const.js';
 import PropTypes from 'prop-types';
 
 class Cell extends Component {
@@ -6,19 +7,14 @@ class Cell extends Component {
     this.props.handleClick(this.props.loc);
   }
   render() {
-    let conversion = {
-      0: '_',
-      1: 'X',
-      "-1": 'O'
-    }
     let classVal = this.props.classVal + " cell";
     let cell = this.props.selectable?
           (<div
             onClick={this.handleClick.bind(this)}
-            className={classVal}>{conversion[this.props.children]}
+            className={classVal}>{ui_mapping[this.props.children]}
           </div>):
           (<div
-            className={classVal}>{conversion[this.props.children]}
+            className={classVal}>{ui_mapping[this.props.children]}
           </div>);
     return (
       cell
