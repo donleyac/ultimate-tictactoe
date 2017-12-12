@@ -7,7 +7,7 @@ class Grid extends PureComponent {
     if(this.props.player===this.props.playerId){
       this.props.placePiece(this.props.loc, cell, this.props.player);
     }
-    this.props.localSwitch();
+    this.props.switchPlayer();
   }
   render() {
     let classVal = this.props.selectable?"select ":" ";
@@ -37,7 +37,7 @@ Grid.propTypes = {
   board:  PropTypes.object.isRequired,
   selectable: PropTypes.bool.isRequired,
   placePiece: PropTypes.func.isRequired,
-  localSwitch: PropTypes.func.isRequired,
+  switchPlayer: PropTypes.func.isRequired,
   winner: PropTypes.number.isRequired
 }
 

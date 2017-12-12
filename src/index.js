@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {setState} from './action_creators';
+import {setState, setUsername, setRoom} from './action_creators';
 import io from 'socket.io-client';
 import routes from './routes.js';
 import reducer from './reducer';
@@ -24,15 +24,25 @@ const store = createStoreWithMiddleware(reducer);
 socket.on('state', state =>
   store.dispatch(setState(state))
 );
-
+//Callback from setUsername
+socket.on('usernameSuccess', username=> {
+  setUsername(username);
+});
+//Callback from createRoom and joinRoom
+socket.on('joinSuccess', room => {
+  setRoom(room);
+});
 registerServiceWorker();
 ReactDOM.render(
 <Provider store={store}>
     {routes}
 </Provider>, document.getElementById('root'));
 
-export function joinRoom (username, room) {
-  socket.emit('join', username, room);
+export function setUsername(username) {
+  socket.emit('username', username);
+}
+export function joinRoom (room) {
+  socket.emit('join', room);
 }
 export function createRoom (room) {
   socket.emit('create', room);

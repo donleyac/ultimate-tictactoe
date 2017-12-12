@@ -18,7 +18,7 @@ class BigGrid extends PureComponent {
                     winner={elem.get("winner")}
                     selectable={elem.get("selectable")}
                     loc={index}
-                    localSwitch={this.props.localSwitch}
+                    switchPlayer={this.props.switchPlayer}
                     key={index} />
               })}
             </div>
@@ -32,7 +32,7 @@ BigGrid.PropTypes = {
   placePiece: PropTypes.func.isRequired,
   player: PropTypes.number.isRequired,
   playerId: PropTypes.number.isRequired,
-  localSwitch: PropTypes.func.isRequired
+  switchPlayer: PropTypes.func.isRequired
 }
 
 export default BigGrid;

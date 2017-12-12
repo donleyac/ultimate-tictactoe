@@ -13,7 +13,7 @@ export class Game extends PureComponent {
             board={this.props.board}
             player={this.props.player}
             playerId={this.props.local_player}
-            localSwitch={this.props.localSwitch}
+            switchPlayer={this.props.switchPlayer}
           />): (<div>
             <button onClick={this.props.resetGame}>Reset Game</button>
             Winner: Player {this.props.winner}</div>)
@@ -28,7 +28,7 @@ Game.PropTypes = {
   winner: PropTypes.number.isRequired,
   player: PropTypes.number.isRequired,
   placePiece: PropTypes.func.isRequired,
-  localSwitch: PropTypes.func.isRequired,
+  switchPlayer: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
     board: state.get('board') || new List(),
     winner: state.get('winner') || 0,
     player: state.get('player') || 0,
-    local_player: state.get('local_player') || 1
+    local_player: state.get('local_player')
   };
 }
 export default connect(mapStateToProps, actionCreators)(Game);
