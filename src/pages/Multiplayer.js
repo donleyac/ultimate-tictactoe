@@ -5,7 +5,7 @@ import * as actionCreators from './../action_creators.js';
 import {emitSetUsername, emitJoinRoom, emitCreateRoom} from './../index.js'
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
-import {Room} from './../components/Room.js';
+import Room from './../components/Room.js';
 import {List, Map} from 'immutable';
 
 export class Multiplayer extends PureComponent {

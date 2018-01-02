@@ -19,12 +19,10 @@ export class Game extends PureComponent {
             Winner: Player {this.props.winner}</div>)
         }
       </div>
-
     );
   }
 }
 Game.PropTypes = {
-  room: PropTypes.string.isRequired,
   board:  PropTypes.object.isRequired,
   winner: PropTypes.number.isRequired,
   player: PropTypes.number.isRequired,
@@ -32,14 +30,4 @@ Game.PropTypes = {
   switchPlayer: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired
 }
-
-function mapStateToProps(state, ownProps) {
-  let room = state.get(ownProps.room);
-  return {
-    board: room.get('board') || null,
-    winner: room.get('winner') || 0,
-    player: room.get('player') || null,
-  };
-}
-
-export default connect(mapStateToProps, actionCreators)(Game);
+export default connect(null, actionCreators)(Game);
