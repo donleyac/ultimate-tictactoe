@@ -3,5 +3,3 @@ export const ui_mapping = {
   1: 'X',
   "-1": 'O'
 };
-
-export const rooms = ['apple', 'bottle'];

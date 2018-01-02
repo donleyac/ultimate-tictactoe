@@ -1,4 +1,4 @@
-import {setUsername, setRoom} from './core.js';
+import {setUsername, setRoom, setAllRooms} from './core.js';
 import {Map} from 'immutable';
 export default function(state = Map(), action) {
   switch (action.type) {

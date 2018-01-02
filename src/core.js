@@ -1,24 +1,14 @@
+import {Map, fromJS} from 'immutable';
+
 export function setUsername(state, username) {
-  let room = state.get("user").get("room");
-  return state.updateIn(
-    ["user",
-    0,
-    user=> {
-      return Map({
-        room: room,
-        username: username,
-      })
-    }])
+  return state.set('username', username)
 }
 export function setRoom(state, room) {
-  let username = state.get("user").get("username");
-  return state.updateIn(
-    ["user",
-    0,
-    room=> {
-      return Map({
-        room: room,
-        username: username
-      })
-    }])
+  return state.set('room', fromJS(room));
+}
+export function setAllRooms(state, rooms) {
+  if(!state.get('rooms')) {
+    return state.set('rooms', fromJS(rooms));
+  }
+  return state.mergeIn(['rooms'], fromJS(rooms));
 }

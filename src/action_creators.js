@@ -2,6 +2,14 @@ export function setState(state) {
   return {type: 'SET_STATE',state};
 }
 
+export function startGame(room) {
+  return {
+    meta: {remote: true},
+    type: 'START_GAME',
+    room: room
+  };
+}
+
 export function placePiece(grid, cell, playerId) {
   return {
     meta: {remote: true},
@@ -18,12 +26,15 @@ export function switchPlayer(){
     type: 'SWITCH'
   }
 }
+
+
 export function resetGame() {
   return {
     meta: {remote: true},
     type: 'INITIAL_STATE'
   };
 }
+
 export function setUsername(username) {
   return {
     type: 'USERNAME',
