@@ -11,7 +11,7 @@ class BigGrid extends PureComponent {
                 let index = r*3+i;
                 let elem = this.props.board.get(index);
                 return <Grid
-                    player={this.props.player}
+                    activePlayer={this.props.activePlayer}
                     playerId={this.props.playerId}
                     placePiece={this.props.placePiece}
                     board={elem.get("grid")}
@@ -30,7 +30,7 @@ class BigGrid extends PureComponent {
 BigGrid.PropTypes = {
   board:  PropTypes.object.isRequired,
   placePiece: PropTypes.func.isRequired,
-  player: PropTypes.number.isRequired,
+  activePlayer: PropTypes.number.isRequired,
   playerId: PropTypes.number.isRequired,
   switchPlayer: PropTypes.func.isRequired
 }

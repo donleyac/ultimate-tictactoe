@@ -2,10 +2,10 @@ import React, {PureComponent} from 'react';
 import Cell from './Cell.js';
 import PropTypes from 'prop-types';
 
-class Grid extends PureComponent {
+export default class Grid extends PureComponent {
   handleClick(cell){
-    if(this.props.player===this.props.playerId){
-      this.props.placePiece(this.props.loc, cell, this.props.player);
+    if(this.props.activePlayer===this.props.playerId){
+      this.props.placePiece(this.props.loc, cell, this.props.activePlayer);
     }
     this.props.switchPlayer();
   }
@@ -31,7 +31,7 @@ class Grid extends PureComponent {
 }
 
 Grid.propTypes = {
-  player: PropTypes.number.isRequired,
+  activePlayer: PropTypes.number.isRequired,
   playerId: PropTypes.number.isRequired,
   loc: PropTypes.number.isRequired,
   board:  PropTypes.object.isRequired,
@@ -40,5 +40,3 @@ Grid.propTypes = {
   switchPlayer: PropTypes.func.isRequired,
   winner: PropTypes.number.isRequired
 }
-
-export default Grid;

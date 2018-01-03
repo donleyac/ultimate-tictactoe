@@ -23,7 +23,10 @@ export class Multiplayer extends PureComponent {
         {this.props.username
           ?<div>
             {(this.props.room
-              ?<Room room={this.props.room} startGame={this.props.startGame} />
+              ?(<Room
+                  room={this.props.room}
+                  username={this.props.username}
+                  startGame={this.props.startGame} />)
               :(<RoomLobby rooms={this.props.rooms} />))}
             </div>
           :(<InputForm label="Username" submitFunc={this.setUsername}/>)
