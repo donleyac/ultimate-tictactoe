@@ -13,7 +13,9 @@ export class Game extends PureComponent {
     this.switchPlayer = this.switchPlayer.bind(this);
   }
   joinGame(){
-    this.props.joinGame(this.props.room, this.props.username);
+    if(!this.props.players.has(this.props.username)){
+      this.props.joinGame(this.props.room, this.props.username);
+    }
   }
   placePiece(loc, cell, player){
     this.props.placePiece(this.props.room, loc, cell, player);

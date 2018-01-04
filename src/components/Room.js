@@ -13,6 +13,7 @@ export class Room extends PureComponent {
         {this.props.game
           ?<Game
             room={this.props.room}
+            username={this.props.username}
             players={this.props.game.get('players')}
             minPlayers={this.props.game.get('minPlayers')}
             board={this.props.game.get('board')}
