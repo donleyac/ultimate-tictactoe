@@ -36,7 +36,7 @@ Room.PropTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    game: state.get(ownProps.room).get("game") || null
+    game: state.getIn(["rooms", ownProps.room, "game"]) || null
   };
 }
 export default connect(mapStateToProps)(Room);

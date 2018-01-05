@@ -10,17 +10,19 @@ export default class RoomLobby extends PureComponent {
   render() {
     return(
       <div>
-        {this.props.rooms.entries((room, items)=>{
-          return (<div>
-            <button>Join Lobby</button>
-            # of People: {items.get("people").size()}
-          </div>)
-        })}
+        {this.props.rooms.count()>0
+          ?this.props.rooms.map((value,key)=> {
+            return (<div key={key}>
+              <button>Join Lobby</button>
+              # of People: {value.get("users").count()}
+            </div>)
+            })
+          :<p>No rooms available</p>
+        }
         <div>
           <InputForm label="Room Name" submitFunc={this.createRoom}/>
         </div>
       </div>
-
     )
   }
 }
