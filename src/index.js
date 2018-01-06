@@ -45,6 +45,7 @@ export function emitJoinRoom (room) {
 //Server adds room to socket, then executes action for server store
 //This is required because adding to socket may require additional logic
 //which should also be applied to the store mirror
+//Don't need to pass user, because socket maintains username
 export function emitCreateRoom (room) {
   socket.emit('create', room);
 }

@@ -1,11 +1,14 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import InputForm from './../components/InputForm.js';
-import {emitCreateRoom} from './../index.js';
+import {emitCreateRoom, emitJoinRoom} from './../index.js';
 
 export default class RoomLobby extends PureComponent {
-  createRoom(roomName) {
-    emitCreateRoom(roomName);
+  createRoom(room) {
+    emitCreateRoom(room);
+  }
+  joinRoom(room){
+    emitJoinRoom(room);
   }
   render() {
     return(
@@ -13,7 +16,7 @@ export default class RoomLobby extends PureComponent {
         {this.props.rooms.count()>0
           ?this.props.rooms.map((value,key)=> {
             return (<div key={key}>
-              <button>Join Lobby</button>
+              <button onClick={()=>this.joinRoom(key)}>Join Lobby</button>
               # of People: {value.get("users").count()}
             </div>)
             })
@@ -28,5 +31,6 @@ export default class RoomLobby extends PureComponent {
 }
 
 RoomLobby.PropTypes = {
-  rooms:PropTypes.object.isRequired
+  rooms:PropTypes.object.isRequired,
+  joinRoom: PropTypes.func.isRequired
 }

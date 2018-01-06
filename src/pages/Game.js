@@ -33,8 +33,8 @@ export class Game extends PureComponent {
               ?(<BigGrid
                 placePiece={this.placePiece}
                 board={this.props.board}
-                activePlayer={this.props.player}
-                playerId={this.props.local_player}
+                activePlayer={this.props.activePlayer}
+                playerId={this.props.players.get(this.props.username)}
                 switchPlayer={this.switchPlayer}
               />)
               :(<div>

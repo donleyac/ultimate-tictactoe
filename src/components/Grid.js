@@ -6,8 +6,8 @@ export default class Grid extends PureComponent {
   handleClick(cell){
     if(this.props.activePlayer===this.props.playerId){
       this.props.placePiece(this.props.loc, cell, this.props.activePlayer);
+      this.props.switchPlayer();
     }
-    this.props.switchPlayer();
   }
   render() {
     let classVal = this.props.selectable?"select ":" ";
