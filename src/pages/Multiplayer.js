@@ -13,6 +13,14 @@ export class Multiplayer extends PureComponent {
     super(props);
     //Non-React lifecycle methods no longer have access to this
     this.setUsername = this.setUsername.bind(this);
+    this.createRoom = this.createRoom.bind(this);
+    this.joinRoom = this.joinRoom.bind(this);
+  }
+  createRoom(room){
+    this.props.createRoom(room, this.props.username);
+  }
+  joinRoom(room){
+    this.props.joinRoom(room, this.props.username);
   }
   setUsername(username){
     emitSetUsername(username);
@@ -29,7 +37,8 @@ export class Multiplayer extends PureComponent {
                   startGame={this.props.startGame} />)
               :(<RoomLobby
                 rooms={this.props.rooms}
-                joinRoom={this.props.joinRoom} />))}
+                createRoom={this.createRoom}
+                joinRoom={this.joinRoom} />))}
             </div>
           :(<InputForm label="Username" submitFunc={this.setUsername}/>)
         }
@@ -40,7 +49,10 @@ export class Multiplayer extends PureComponent {
 
 Multiplayer.PropTypes = {
   setUsername: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired
+  startGame: PropTypes.func.isRequired,
+  createRoom: PropTypes.func.isRequired,
+  joinRoom: PropTypes.func.isRequired,
+  leaveRoom: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
   return {

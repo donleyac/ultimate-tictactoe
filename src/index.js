@@ -22,6 +22,10 @@ const store = createStoreWithMiddleware(reducer);
 socket.on('state', state =>
   store.dispatch(setState(state))
 );
+//Clientside disconnect
+socket.on('disconnectThatSoc', function(){
+   socket.disconnect();
+});
 //Callback from setUsername
 socket.on('usernameSuccess', username=>
   store.dispatch(setUsername(username))
@@ -39,13 +43,9 @@ ReactDOM.render(
 export function emitSetUsername(username) {
   socket.emit('username', username);
 }
-export function emitJoinRoom (room) {
-  socket.emit('join', room);
+export function emitCreateRoom(room) {
+  socket.emit('createRoom', room);
 }
-//Server adds room to socket, then executes action for server store
-//This is required because adding to socket may require additional logic
-//which should also be applied to the store mirror
-//Don't need to pass user, because socket maintains username
-export function emitCreateRoom (room) {
-  socket.emit('create', room);
+export function emitJoinRoom(room) {
+  socket.emit('joinRoom', room);
 }

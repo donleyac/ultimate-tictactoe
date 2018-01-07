@@ -7,6 +7,8 @@ export class Room extends PureComponent {
   render() {
     return (
       <div>
+        <p># of Users {this.props.users.count()}</p>
+        <button>Leave Room</button>
         <div>
           Chat
         </div>
@@ -36,7 +38,8 @@ Room.PropTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    game: state.getIn(["rooms", ownProps.room, "game"]) || null
+    game: state.getIn(["rooms", ownProps.room, "game"]) || null,
+    users: state.getIn(["rooms", ownProps.room, "users"]) || null
   };
 }
 export default connect(mapStateToProps)(Room);

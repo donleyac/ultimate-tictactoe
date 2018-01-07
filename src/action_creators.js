@@ -1,6 +1,30 @@
 export function setState(state) {
   return {type: 'SET_STATE',state};
 }
+export function createRoom(room, user) {
+  return {
+    meta: {remote: true},
+    type: 'CREATE_ROOM',
+    room: room,
+    username: user
+  }
+}
+export function joinRoom(room, user) {
+  return {
+    meta: {remote: true},
+    type: 'JOIN_ROOM',
+    room: room,
+    username: user
+  }
+}
+export function leaveRoom(room, user) {
+  return {
+    meta: {remote: true},
+    type: 'LEAVE_ROOM',
+    room: room,
+    username: user
+  }
+}
 export function startGame(room) {
   return {
     meta: {remote: true},
@@ -13,7 +37,7 @@ export function joinGame(room, user){
     meta: {remote: true},
     type: 'JOIN_GAME',
     room: room,
-    user: user
+    username: user
   }
 }
 export function placePiece(room, grid, cell, playerId) {
