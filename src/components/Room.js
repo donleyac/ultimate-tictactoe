@@ -7,8 +7,8 @@ export class Room extends PureComponent {
   render() {
     return (
       <div>
-        <p># of Users {this.props.users.count()}</p>
-        <button>Leave Room</button>
+        <p># of People {this.props.users?this.props.users.count():"Loading"}</p>
+        <button onClick={()=>this.props.leaveRoom(this.props.room, this.props.username)}>Leave Room</button>
         <div>
           Chat
         </div>
@@ -34,6 +34,7 @@ Room.PropTypes = {
   username: PropTypes.string.isRequired,
   game: PropTypes.object,
   startGame: PropTypes.func.isRequired,
+  leaveRoom: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, ownProps) {

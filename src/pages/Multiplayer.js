@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as actionCreators from './../action_creators.js';
-import {emitSetUsername, emitJoinRoom, emitCreateRoom} from './../index.js'
+import {emitSetUsername} from './../index.js'
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
@@ -34,6 +34,7 @@ export class Multiplayer extends PureComponent {
               ?(<Room
                   room={this.props.room}
                   username={this.props.username}
+                  leaveRoom={this.props.leaveRoom}
                   startGame={this.props.startGame} />)
               :(<RoomLobby
                 rooms={this.props.rooms}

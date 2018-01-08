@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {setState, setUsername, setRoom, createRoom} from './action_creators';
+import {setState, setUsername, setRoom, leaveRoom} from './action_creators';
 import io from 'socket.io-client';
 import routes from './routes.js';
 import reducer from './reducer';
@@ -23,15 +23,21 @@ socket.on('state', state =>
   store.dispatch(setState(state))
 );
 //Clientside disconnect
-socket.on('disconnectThatSoc', function(){
-   socket.disconnect();
+socket.on('disconnectThatSoc', ()=> {
+  store.dispatch(leaveRoom(socket.room, socket.username));
+  socket.disconnect();
 });
 //Callback from setUsername
-socket.on('usernameSuccess', username=>
-  store.dispatch(setUsername(username))
+socket.on('usernameSuccess', username=>{
+    //required because disconnect has no info
+    socket.username = username;
+    store.dispatch(setUsername(username))
+  }
 );
 //Callback from createRoom and joinRoom
-socket.on('joinSuccess', room => {
+socket.on('roomSuccess', room => {
+  //required because disconnect has no info
+  socket.room = room;
   store.dispatch(setRoom(room));
 });
 registerServiceWorker();
@@ -42,10 +48,4 @@ ReactDOM.render(
 
 export function emitSetUsername(username) {
   socket.emit('username', username);
-}
-export function emitCreateRoom(room) {
-  socket.emit('createRoom', room);
-}
-export function emitJoinRoom(room) {
-  socket.emit('joinRoom', room);
 }
