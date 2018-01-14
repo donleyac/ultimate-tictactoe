@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as actionCreators from './../action_creators.js';
-import {emitSetUsername} from './../index.js'
+import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom} from './../index.js'
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
@@ -17,10 +17,13 @@ export class Multiplayer extends PureComponent {
     this.joinRoom = this.joinRoom.bind(this);
   }
   createRoom(room){
-    this.props.createRoom(room, this.props.username);
+    emitCreateRoom(room);
   }
   joinRoom(room){
-    this.props.joinRoom(room, this.props.username);
+    emitJoinRoom(room);
+  }
+  leaveRoom(){
+    emitLeaveRoom();
   }
   setUsername(username){
     emitSetUsername(username);
@@ -34,8 +37,8 @@ export class Multiplayer extends PureComponent {
               ?(<Room
                   room={this.props.room}
                   username={this.props.username}
-                  leaveRoom={this.props.leaveRoom}
-                  startGame={this.props.startGame} />)
+                  leaveRoom={this.leaveRoom}
+                  startGame={emitStartGame} />)
               :(<RoomLobby
                 rooms={this.props.rooms}
                 createRoom={this.createRoom}
@@ -49,11 +52,7 @@ export class Multiplayer extends PureComponent {
 }
 
 Multiplayer.PropTypes = {
-  setUsername: PropTypes.func.isRequired,
-  startGame: PropTypes.func.isRequired,
-  createRoom: PropTypes.func.isRequired,
-  joinRoom: PropTypes.func.isRequired,
-  leaveRoom: PropTypes.func.isRequired
+  setUsername: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
   return {

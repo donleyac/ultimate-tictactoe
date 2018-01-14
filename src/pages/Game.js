@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from './../action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 import {ui_mapping} from './../const.js';
+import {emitJoinGame, emitPlacePiece, emitSwitchPlayer} from './../index.js';
 
 export class Game extends PureComponent {
   constructor(props) {
@@ -15,14 +16,14 @@ export class Game extends PureComponent {
   }
   joinGame(){
     if(!this.props.players.has(this.props.username)){
-      this.props.joinGame(this.props.room, this.props.username);
+      emitJoinGame();
     }
   }
   placePiece(loc, cell, player){
-    this.props.placePiece(this.props.room, loc, cell, player);
+    emitPlacePiece(loc, cell, player);
   }
   switchPlayer(){
-    this.props.switchPlayer(this.props.room);
+    emitSwitchPlayer();
   }
   render() {
     return (
@@ -66,8 +67,6 @@ Game.PropTypes = {
   minPlayers: PropTypes.number.isRequired,
   players: PropTypes.object.isRequired,
   joinGame: PropTypes.func.isRequired,
-  placePiece: PropTypes.func.isRequired,
-  switchPlayer: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired
 }
 export default connect(null, actionCreators)(Game);
