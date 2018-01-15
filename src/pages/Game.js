@@ -2,10 +2,10 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {List} from 'immutable';
 import {connect} from 'react-redux';
-import * as actionCreators from './../action_creators.js';
+import * as actionCreators from './../redux/action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 import {ui_mapping} from './../const.js';
-import {emitJoinGame, emitPlacePiece, emitSwitchPlayer} from './../index.js';
+import {emitJoinGame, emitPlacePiece, emitSwitchPlayer} from './../socketClient.js';
 
 export class Game extends PureComponent {
   constructor(props) {

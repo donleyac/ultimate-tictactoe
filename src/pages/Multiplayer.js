@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import * as actionCreators from './../action_creators.js';
-import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom} from './../index.js'
+import * as actionCreators from './../redux/action_creators.js';
+import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom} from './../socketClient.js';
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
