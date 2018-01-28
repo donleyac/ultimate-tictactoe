@@ -22,9 +22,8 @@ export default function () {
     store.dispatch(setRoom(room));
   });
   //Add incoming messages to rooms
-  socket.on('sendMessageClients', message=>{
-    console.log('client', message);
-    store.dispatch(messageReceived(message));
+  socket.on('sendMessageClients', (username,message)=>{
+    store.dispatch(messageReceived(username, message));
   });
 }
 
@@ -47,6 +46,9 @@ export function emitStartGame(){
 export function emitJoinGame(){
   socket.emit('joinGame');
 }
+export function emitLeaveGame(){
+  socket.emit('leaveGame');
+}
 //TODO need to get rid of playerId requirement, take from socket.player
 export function emitPlacePiece(grid, cell, playerId){
   socket.emit('placePiece', grid, cell, playerId);
@@ -57,4 +59,7 @@ export function emitSwitchPlayer(){
 }
 export function sendMessage(message) {
   socket.emit('sendMessage', message);
+}
+export function emitTruncateAll(){
+  socket.emit('truncateAll')
 }

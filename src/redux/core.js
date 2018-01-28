@@ -15,9 +15,9 @@ export function setAllRooms(state, rooms) {
   return state.mergeIn(['rooms'], fromJS(rooms));
 }
 //TODO make chat specific to room
-export function messageReceived(state,message){
+export function messageReceived(state,username, message){
   let room = state.get('room');
-  let chat = state.get('chat').push(message);
+  let chat = state.get('chat').push([username,message]);
   let newState =  state.set('chat', chat);
   return newState;
 }

@@ -26,9 +26,10 @@ export function setRoom(room) {
   };
 }
 
-export function messageReceived(message) {
+export function messageReceived(username,message) {
   return {
     type: 'MESSAGE_RECEIVED',
+    username: username,
     message: message
   }
 }

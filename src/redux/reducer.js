@@ -9,7 +9,7 @@ export default function(state = Map(), action) {
     case 'ROOM':
       return setRoom(state, action.room);
     case 'MESSAGE_RECEIVED':
-      return messageReceived(state, action.message)
+      return messageReceived(state, action.username, action.message)
     default:
       return state;
   }

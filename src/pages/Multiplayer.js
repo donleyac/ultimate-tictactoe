@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as actionCreators from './../redux/action_creators.js';
-import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom} from './../socketClient.js';
+import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom, emitTruncateAll} from './../socketClient.js';
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
@@ -15,6 +15,7 @@ export class Multiplayer extends PureComponent {
     this.setUsername = this.setUsername.bind(this);
     this.createRoom = this.createRoom.bind(this);
     this.joinRoom = this.joinRoom.bind(this);
+    this.truncateAll = this.truncateAll.bind(this);
   }
   createRoom(room){
     emitCreateRoom(room);
@@ -28,9 +29,13 @@ export class Multiplayer extends PureComponent {
   setUsername(username){
     emitSetUsername(username);
   }
+  truncateAll(){
+    emitTruncateAll();
+  }
   render() {
     return (
       <div>
+        <button onClick={()=>this.truncateAll()}>Truncate DB</button>
         {this.props.username
           ?<div>
             {(this.props.room

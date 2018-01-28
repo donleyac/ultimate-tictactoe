@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import * as actionCreators from './../redux/action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 import {ui_mapping} from './../const.js';
-import {emitJoinGame, emitPlacePiece, emitSwitchPlayer} from './../socketClient.js';
+import {emitJoinGame, emitPlacePiece, emitSwitchPlayer, emitLeaveGame} from './../socketClient.js';
 
 export class Game extends PureComponent {
   constructor(props) {
@@ -13,10 +13,18 @@ export class Game extends PureComponent {
     this.joinGame = this.joinGame.bind(this);
     this.placePiece = this.placePiece.bind(this);
     this.switchPlayer = this.switchPlayer.bind(this);
+    this.state = {joined: false};
   }
   joinGame(){
     if(!this.props.players.has(this.props.username)){
       emitJoinGame();
+    }
+    this.setState({joined: true});
+  }
+  leaveGame(){
+    if(this.props.players.has(this.props.username)){
+      emitLeaveGame();
+      this.setState({joined: false});
     }
   }
   placePiece(loc, cell, player){
@@ -29,15 +37,26 @@ export class Game extends PureComponent {
     return (
       <div>
         {this.props.players.count()<this.props.minPlayers
-          ?(<button onClick={()=>this.joinGame()}>Join Game</button>)
+          ?(<button onClick={()=>this.joinGame()}>
+            {this.state.joined
+              ?"Waiting"
+              :"Join Game"}
+            </button>)
           :<div>
+            {this.state.joined
+              ?(<button onClick={()=>this.leaveGame()}>Leave Game</button>):null}
             {this.props.winner===0
               ?(<div>
-                <p>Your Symbol {ui_mapping[this.props.players.get(this.props.username)]}</p>
-                {this.props.players.get(this.props.username)===this.props.activePlayer
-                  ?(<p>Your Turn</p>)
-                  :(<p>Opponent's Turn</p>)
-                }
+                  {this.state.joined
+                    ?(<div>
+                        <p>Your Symbol {ui_mapping[this.props.players.get(this.props.username)]}</p>
+                        {this.props.players.get(this.props.username)===this.props.activePlayer
+                          ?(<p>Your Turn</p>)
+                          :(<p>Opponent's Turn</p>)
+                        }
+                    </div>):null
+                  }
+
                 <BigGrid
                   placePiece={this.placePiece}
                   board={this.props.board}

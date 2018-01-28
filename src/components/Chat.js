@@ -26,7 +26,7 @@ export default class Chat extends PureComponent {
     return (
       <div>
         <ul>
-          {this.props.messages.map(elem=>(<li>{elem}</li>))}
+          {this.props.messages.map(elem=>(<li>{elem[0]+": " + elem[1]}</li>))}
         </ul>
         <input type="text" onChange={this.handleChange} value={this.state.input}/>
         <input type="button" value="Send" onClick={this.handleSubmit}/>
