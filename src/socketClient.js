@@ -1,6 +1,6 @@
 import {socket} from './index.js';
 import {store} from './index.js';
-import {setState, setUsername, setRoom} from './redux/action_creators.js';
+import {setState, setUsername, setRoom, messageReceived} from './redux/action_creators.js';
 
 
 export default function () {
@@ -20,6 +20,11 @@ export default function () {
   //Callback from createRoom and joinRoom
   socket.on('roomSuccess', room => {
     store.dispatch(setRoom(room));
+  });
+  //Add incoming messages to rooms
+  socket.on('sendMessageClients', message=>{
+    console.log('client', message);
+    store.dispatch(messageReceived(message));
   });
 }
 
@@ -49,4 +54,7 @@ export function emitPlacePiece(grid, cell, playerId){
 //TODO should integrate this into Place Piece
 export function emitSwitchPlayer(){
   socket.emit('switchPlayer');
+}
+export function sendMessage(message) {
+  socket.emit('sendMessage', message);
 }

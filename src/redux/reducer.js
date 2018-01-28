@@ -1,4 +1,4 @@
-import {setUsername, setRoom, setAllRooms} from './core.js';
+import {setUsername, setRoom, setAllRooms, messageReceived} from './core.js';
 import {Map} from 'immutable';
 export default function(state = Map(), action) {
   switch (action.type) {
@@ -8,6 +8,8 @@ export default function(state = Map(), action) {
       return setUsername(state, action.username);
     case 'ROOM':
       return setRoom(state, action.room);
+    case 'MESSAGE_RECEIVED':
+      return messageReceived(state, action.message)
     default:
       return state;
   }

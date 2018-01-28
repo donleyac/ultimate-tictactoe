@@ -6,10 +6,11 @@ export function resetGame() {
     type: 'INITIAL_STATE'
   };
 }
-export function sendMessage(room, message){
+export function sendMessage(message){
   return {
     meta: {remote: true},
-    type: 'SEND_MESSAGE_ROOM'
+    type: 'MESSAGE_SEND',
+    message: message
   }
 }
 export function setUsername(username) {
@@ -23,4 +24,11 @@ export function setRoom(room) {
     type: 'ROOM',
     room: room
   };
+}
+
+export function messageReceived(message) {
+  return {
+    type: 'MESSAGE_RECEIVED',
+    message: message
+  }
 }

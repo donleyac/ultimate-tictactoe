@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {List} from 'immutable';
+import Chat from './Chat.js';
 
 import Game from './../pages/Game.js';
 export class Room extends PureComponent {
@@ -9,9 +11,8 @@ export class Room extends PureComponent {
       <div>
         <p># of People {this.props.users?this.props.users.count():"Loading"}</p>
         <button onClick={()=>this.props.leaveRoom(this.props.room, this.props.username)}>Leave Room</button>
-        <div>
-          Chat
-        </div>
+        <Chat
+          messages={this.props.chat}/>
         {this.props.game
           ?<Game
             room={this.props.room}
@@ -40,7 +41,8 @@ Room.PropTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     game: state.getIn(["rooms", ownProps.room, "game"]) || null,
-    users: state.getIn(["rooms", ownProps.room, "users"]) || null
+    users: state.getIn(["rooms", ownProps.room, "users"]) || null,
+    chat: state.get("chat") || new List()
   };
 }
 export default connect(mapStateToProps)(Room);

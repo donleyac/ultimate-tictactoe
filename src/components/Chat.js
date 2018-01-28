@@ -2,45 +2,35 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {List} from 'immutable';
 import {connect} from 'react-redux';
-import * as actionCreators from './../action_creators.js';
+import {sendMessage} from './../socketClient.js';
 
-export class Chat extends PureComponent {
+export default class Chat extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
-      messages: props.messages
+      input: ''
     }
-    this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
-    this._handleMessageEvent = this._handleMessageEvent.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
-    this._handleMessageEvent()
-  }
-  _handleMessageEvent(){
-  socket.on('chat message', (inboundMessage) => {
-    this.props.newMessage({user: 'test_user', message: inboundMessage})
-     })
-  }
-  handleOnChange(ev) {
+  handleChange(ev) {
     this.setState({ input: ev.target.value })
   }
-  handleOnSubmit(ev) {
+  handleSubmit(ev) {
     ev.preventDefault()
-    socket.emit('chat message', { message: this.state.input })
+    sendMessage(this.state.input);
     this.setState({ input: '' })
   }
 
   render() {
     return (
       <div>
-
+        <ul>
+          {this.props.messages.map(elem=>(<li>{elem}</li>))}
+        </ul>
+        <input type="text" onChange={this.handleChange} value={this.state.input}/>
+        <input type="button" value="Send" onClick={this.handleSubmit}/>
       </div>
     );
   }
 }
-Chat.PropTypes = {
-
-}
-export default connect(null, actionCreators)(Game);
