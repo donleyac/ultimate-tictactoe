@@ -33,3 +33,63 @@ export function messageReceived(username,message) {
     message: message
   }
 }
+export function startGame() {
+  return {
+    meta: {remote: true},
+    type: 'START_GAME'
+  };
+}
+export function joinGame(){
+  return {
+    meta: {remote: true},
+    type: 'JOIN_GAME'
+  }
+}
+export function leaveGame() {
+  return {
+    meta: {remote: true},
+    type: 'LEAVE_GAME'
+  }
+}
+export function placePiece(grid, cell, playerId) {
+  return {
+    meta: {remote: true},
+    type: 'PLACE',
+    grid: grid,
+    cell: cell,
+    playerId: playerId
+  };
+}
+export function switchPlayer(){
+  return {
+    meta: {remote: true},
+    type: 'SWITCH'
+  }
+}
+export function createUsername(username) {
+  return {
+    meta: {remote: true},
+    type: 'CREATE_USERNAME',
+    username: username
+  }
+}
+export function createRoom(room) {
+  return {
+    meta: {remote: true},
+    type: 'CREATE_ROOM',
+    room: room
+  }
+}
+export function joinRoom(room) {
+  return {
+    meta: {remote: true},
+    type: 'JOIN_ROOM',
+    room: room
+  }
+}
+export function leaveRoom() {
+  return {
+    meta: {remote: true},
+    type: 'LEAVE_ROOM'
+  }
+}

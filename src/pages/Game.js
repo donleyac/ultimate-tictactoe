@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import * as actionCreators from './../redux/action_creators.js';
 import BigGrid from './../components/BigGrid.js';
 import {ui_mapping} from './../const.js';
-import {emitJoinGame, emitPlacePiece, emitSwitchPlayer, emitLeaveGame} from './../socketClient.js';
 
 export class Game extends PureComponent {
   constructor(props) {
@@ -17,21 +16,21 @@ export class Game extends PureComponent {
   }
   joinGame(){
     if(!this.props.players.has(this.props.username)){
-      emitJoinGame();
+      this.props.joinGame();
     }
     this.setState({joined: true});
   }
   leaveGame(){
     if(this.props.players.has(this.props.username)){
-      emitLeaveGame();
+      this.props.leaveGame();
       this.setState({joined: false});
     }
   }
   placePiece(loc, cell, player){
-    emitPlacePiece(loc, cell, player);
+    this.props.placePiece(loc, cell, player);
   }
   switchPlayer(){
-    emitSwitchPlayer();
+    this.props.switchPlayer();
   }
   render() {
     return (

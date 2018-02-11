@@ -9,7 +9,6 @@ export default function () {
   );
   //Clientside disconnect
   socket.on('disconnectThatSoc', ()=> {
-    store.dispatch(socket.room, socket.username);
     socket.disconnect();
   });
   //Callback from setUsername
@@ -25,37 +24,6 @@ export default function () {
   socket.on('sendMessageClients', (username,message)=>{
     store.dispatch(messageReceived(username, message));
   });
-}
-
-//TODO move emits out to where they are used
-export function emitSetUsername(username) {
-  socket.emit('setUsername', username);
-}
-export function emitCreateRoom(room){
-  socket.emit('createRoom', room);
-}
-export function emitJoinRoom(room){
-  socket.emit('joinRoom',room);
-}
-export function emitLeaveRoom() {
-  socket.emit('leaveRoom');
-}
-export function emitStartGame(){
-  socket.emit('startGame');
-}
-export function emitJoinGame(){
-  socket.emit('joinGame');
-}
-export function emitLeaveGame(){
-  socket.emit('leaveGame');
-}
-//TODO need to get rid of playerId requirement, take from socket.player
-export function emitPlacePiece(grid, cell, playerId){
-  socket.emit('placePiece', grid, cell, playerId);
-}
-//TODO should integrate this into Place Piece
-export function emitSwitchPlayer(){
-  socket.emit('switchPlayer');
 }
 export function sendMessage(message) {
   socket.emit('sendMessage', message);

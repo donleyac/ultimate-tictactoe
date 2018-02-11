@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import * as actionCreators from './../redux/action_creators.js';
-import {emitCreateRoom, emitJoinRoom, emitSetUsername, emitStartGame, emitLeaveRoom, emitTruncateAll} from './../socketClient.js';
+import {emitTruncateAll} from './../socketClient.js';
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
@@ -12,22 +12,22 @@ export class Multiplayer extends PureComponent {
   constructor(props) {
     super(props);
     //Non-React lifecycle methods no longer have access to this
-    this.setUsername = this.setUsername.bind(this);
+    this.createUsername = this.createUsername.bind(this);
     this.createRoom = this.createRoom.bind(this);
     this.joinRoom = this.joinRoom.bind(this);
     this.truncateAll = this.truncateAll.bind(this);
   }
   createRoom(room){
-    emitCreateRoom(room);
+    this.props.createRoom(room);
   }
   joinRoom(room){
-    emitJoinRoom(room);
+    this.props.joinRoom(room);
   }
   leaveRoom(){
-    emitLeaveRoom();
+    this.props.leaveRoom()
   }
-  setUsername(username){
-    emitSetUsername(username);
+  createUsername(username){
+    this.props.createUsername(username);
   }
   truncateAll(){
     emitTruncateAll();
@@ -43,13 +43,13 @@ export class Multiplayer extends PureComponent {
                   room={this.props.room}
                   username={this.props.username}
                   leaveRoom={this.leaveRoom}
-                  startGame={emitStartGame} />)
+                  startGame={this.props.startGame} />)
               :(<RoomLobby
                 rooms={this.props.rooms}
                 createRoom={this.createRoom}
                 joinRoom={this.joinRoom} />))}
             </div>
-          :(<InputForm label="Username" submitFunc={this.setUsername}/>)
+          :(<InputForm label="Username" submitFunc={this.createUsername}/>)
         }
       </div>
     );
@@ -57,7 +57,7 @@ export class Multiplayer extends PureComponent {
 }
 
 Multiplayer.PropTypes = {
-  setUsername: PropTypes.func.isRequired
+  createUsername: PropTypes.func.isRequired
 }
 function mapStateToProps(state) {
   return {
