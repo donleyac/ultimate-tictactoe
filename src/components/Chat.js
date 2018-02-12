@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {List} from 'immutable';
 import {connect} from 'react-redux';
-import {sendMessage} from './../socketClient.js';
+import * as actionCreators from './../redux/action_creators.js';
 
 export default class Chat extends PureComponent {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class Chat extends PureComponent {
   }
   handleSubmit(ev) {
     ev.preventDefault()
-    sendMessage(this.state.input);
+    this.props.sendMessage(this.state.input);
     this.setState({ input: '' })
   }
 

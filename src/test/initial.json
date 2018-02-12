@@ -1,0 +1,10 @@
+{
+  "username": "alex",
+  "room": {
+    "id": "apple",
+    "chat": [
+      ["alex", "what is up"]
+    ],
+    "users": ["jake"]
+  }
+}

@@ -20,10 +20,8 @@ export default function () {
   socket.on('roomSuccess', room => {
     store.dispatch(setRoom(room));
   });
-  //Add incoming messages to rooms
-  socket.on('sendMessageClients', (username,message)=>{
-    store.dispatch(messageReceived(username, message));
-  });
+
+  socket.on('action', action=> store.dispatch(action));
 }
 export function sendMessage(message) {
   socket.emit('sendMessage', message);
