@@ -1,30 +1,41 @@
-import {INITIAL_STATE, setUsername, setRoom,messageReceived, getInitial, startGame, placePiece,switchPlayer, createRoom,joinRoom, leaveRoom, joinGame, leaveGame, INITIAL_STATE} from './core.js';
 import {Map} from 'immutable';
-export default function(state = INITIAL_STATE, action) {
+import {INITIAL_STATE, setUsername, message,
+  createRoom,joinRoom, leaveRoom, userJoinedRoom, userLeftRoom, 
+  createGame, joinGame, leaveGame, startGame,
+  placePiece, switchPlayer} from './core';
+import { create } from 'domain';
+export default function(state = INITIAL_STATE, action={}) {
+  let pathST;
+  const GAME_PATH = ["room", "game"];
   switch (action.type) {
     case 'USERNAME':
       return setUsername(state, action.username);
-    case 'ROOM':
-      return setRoom(state, action.room);
-    case 'MESSAGE_SEND':
-      return messageReceived(state, action.username, action.message)
     case 'CREATE_ROOM':
-    //TODO need to add validation if game already exists from data store
-      return createRoom(state, action.room, action.username);
+      return createRoom(state, action.room);
     case 'JOIN_ROOM':
-      return joinRoom(state, action.room, action.username);
+      return joinRoom(state, action.roomST);
     case 'LEAVE_ROOM':
-      return leaveRoom(state, action.room, action.username);
-    case 'START_GAME':
-      return startGame(state, action.room);
+      return leaveRoom(state);    
+    case 'USER_JOINED_ROOM':
+      return userJoinedRoom(state, action.username);
+    case 'USER_LEFT_ROOM':
+      return userLeftRoom(state, action.username);
+    case 'CREATE_GAME':
+      return createGame(state);
     case 'JOIN_GAME':
-      return joinGame(state, action.room, action.username);
+      pathST = state.getIn(GAME_PATH);
+      return state.setIn(GAME_PATH, joinGame(pathST, action.username));
     case 'LEAVE_GAME':
-      return leaveGame(state, action.room, action.username);
-    case 'PLACE':
-      return placePiece(state, action.room, action.grid, action.cell, action.playerId);
-    case 'SWITCH':
-      return switchPlayer(state, action.room, action.username);
+      return leaveGame(state, action.username);
+    case 'START_GAME':
+      pathST = state.getIn(GAME_PATH);
+      return state.setIn(GAME_PATH,startGame(pathST, action.username));
+    case 'PLACE_PIECE':
+      return placePiece(state, action.grid, action.cell, action.playerId);
+    case 'SWITCH_PLAYER':
+      return switchPlayer(state, action.playerId);
+    case 'MESSAGE':
+      return message(state, action.username, action.message);
     default:
       return state;
   }

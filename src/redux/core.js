@@ -1,7 +1,7 @@
 import {Iterable, fromJS, List, Map,is} from 'immutable';
 import {winningCells, SIGNS} from './consts.js';
 
-export const INITIAL_STATE = Map();
+export const INITIAL_STATE = new Map();
 export function setUsername(state, username) {
   return state.set("username", username)
 }
@@ -12,113 +12,118 @@ export function createRoom(state, room) {
     users: new List()
   }));
 }
+export function joinRoom(state, roomState) {
+  return state.set("room", fromJS(roomState));
+}
+export function leaveRoom(state) {
+  return state.remove("room");
+}
 export function userJoinedRoom(state, username) {
   return state.updateIn(["room", "users"],
   0,
   existingUsers=>existingUsers.push(username));
+}
+export function userLeftRoom(state, username) {
+  return state.updateIn(["room", "users"],
+  0,
+  existingUsers=>{
+    let index = existingUsers.findIndex(item=>item===username);
+    return index>=0?existingUsers.delete(index):existingUsers;
+  });
 }
 export function message(state,username, message){
   return state.updateIn(["room", "chat"],
   0,
   chat=>chat.push(List([username,message])));
 }
-export function userLeftRoom(state, username){
-  if(state.getIn())
-}
-
-export function leaveRoom(state, room, user) {
-  let roomState;
-  //Remove them from their game if its in the room
-  if(state.getIn(["rooms", room, "game"])){
-    roomState = leaveGame(state, room, user);
-  }
-  else {
-    roomState = state;
-  }
-  if(roomState.getIn("rooms", room, "users")){
-    return roomState.updateIn(["rooms", room, "users"],
-    0,
-    existingUsers=> {
-      for(let i=0; i<existingUsers.count(); i++){
-        if(existingUsers.get(i)===user){
-          return existingUsers.delete(i);
-        }
-      }
-    });
-  }
-  return roomState;
-}
-//Game info needs to go through server for validation, should not validate on client
-export function startGame(state, room) {
+export function createGame(state) {
   let board = new Array(9).fill({
     grid: new Array(9).fill(0),
     selectable: true,
     winner: 0
   });
-  return state.setIn(["rooms", room, "game"], Map({
+  return state.setIn(["room", "game"], Map({
     board: fromJS(board),
     winner: 0,
     activePlayer: 1,
-    minPlayers: 2,
+    playerRange: new List([2,2]),
     players: Map()
   }));
 }
-export function joinGame(state, room, user){
-  let minPlayers = state.getIn(["rooms", room,"game", "minPlayers"]);
-  let joinedState = state.updateIn(
-    ["rooms", room, "game", "players"],
-    0,
-    players=>{
-      //TODO add logic that checks if user is in players before adding them
-      return players.set(user, null);
+//state = ["room","game"]
+export function joinGame(state, username){
+  let playerRange = state.get("playerRange");
+  let players = state.get("players");
+  let numPlayers = players.count();
+  //Num players less than game max
+  if(numPlayers<playerRange.get(1)){
+    if(!players.get(username)) {
+      return state.set("players", players.set(username, false));
     }
-  )
-  let players = joinedState.getIn(["rooms",room,"game","players"]);
-  if(minPlayers===players.count()){
-    //TODO create better mapping function, maybe take depending on game mode
-    let assignedPl = players.mapEntries(([k,v], index) => {
-      if(index==0){
-        return [k, -1];
-      }
-      return [k, 1]
-    });
-    return joinedState.setIn(["rooms", room,"game","players"], assignedPl);
   }
-  return joinedState;
+  return state;
 }
-export function leaveGame(state, room, user){
-  console.log("leaveGame", state);
-  let removedState = state.updateIn(
-    ["rooms", room, "game", "players"],
+export function leaveGame(state, username){
+  return state.updateIn(
+    ["room", "game", "players"],
     0,
     players=>{
-      return players.delete(user);
+      return players.delete(username);
     }
   )
-  return removedState;
 }
-
-export function placePiece(state, room, grid, cell, playerId) {
-  // const roomPath = ["rooms", room];
-  // const boardPath = roomPath.push("game", "board");
-  // const gridPath = boardPath.push(grid, "grid");
-  // const cellPath = gridPath.push(cell);
-
-  let chosenCell = state.getIn(["rooms", room,"game","board",grid,"grid",cell]);
-  if(playerId===state.getIn(["rooms", room,"game","activePlayer"]) && chosenCell===0){
+//state = ["room","game"]
+export function startGame(state, username){
+  let playerRange = state.get("playerRange");
+  let players = state.get("players");
+  let numPlayers = players.count();
+  let player = players.get(username);
+  //In the game but not ready
+  if(player===false){
+    let startedPlayerST = state.set("players",players.set(username, true));
+    //Assign players: if all players ready and more players than min
+    if(_gameAllStart(startedPlayerST.get("players"))
+      && numPlayers>=playerRange.get(0)){
+      return startedPlayerST.set("players", _assignGamePlayers(players));
+    }
+    return startedPlayerST;
+  }
+  return state;
+}
+function _gameAllStart(players){
+  let output = true
+  players.forEach(value=>{
+    if(!value){
+      output = false
+    }
+  });
+  return output;
+}
+function _assignGamePlayers(players){
+  return players.mapEntries(([k,v], index) => {
+    if(index==0){
+      return [k, -1];
+    }
+    return [k, 1]
+  });
+}
+export function placePiece(state, grid, cell, playerId) {
+  let chosenCell = state.getIn(["room","game","board",grid,"grid",cell]);
+  let gridSelectable = state.getIn(["room","game","board",grid,"selectable"]);
+  if(playerId===state.getIn(["room","game","activePlayer"]) && chosenCell===0 && gridSelectable){
     //Place Piece in cells
     let placed = state.updateIn(
-      ["rooms", room, "game","board", grid, "grid", cell],
+      ["room", "game","board", grid, "grid", cell],
       0,
       cell => playerId
     );
     //Check Winner in Grid
-    let gridState = placed.getIn(["rooms", room,"game","board", grid,"grid"]);
-    let grid_winner = placed.setIn(["rooms", room, "game","board", grid, "winner"],
+    let gridState = placed.getIn(["room","game","board", grid,"grid"]);
+    let grid_winner = placed.setIn(["room","game","board", grid, "winner"],
       checkWinner(gridState));
     //Set selectable
     let selectable = grid_winner.updateIn(
-      ["rooms", room,"game","board"],
+      ["room","game","board"],
       0,
       board => {
         let new_board = new Array(9);
@@ -138,8 +143,8 @@ export function placePiece(state, room, grid, cell, playerId) {
       }
     );
     //Check Game Winner and change player
-    let boardState = selectable.getIn(["rooms", room,"game","board"]);
-    let game_winner = selectable.setIn(["rooms", room,"game","winner"],
+    let boardState = selectable.getIn(["room","game","board"]);
+    let game_winner = selectable.setIn(["room","game","winner"],
      checkWinner(boardState));
     return game_winner;
   }
@@ -171,10 +176,15 @@ function checkWinner(board) {
   return 0;
 }
 //TODO change so it's specific to room
-export function switchPlayer(state, room){
+export function switchPlayer(state, player){
   return state.updateIn(
-    ["rooms", room,"game","activePlayer"],
+    ["room","game","activePlayer"],
     0,
-    player => player*-1
+    activePlayer => {
+      if(activePlayer===player){
+        return activePlayer*-1;
+      }
+      return activePlayer;
+    }
   );
 }

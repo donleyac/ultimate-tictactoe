@@ -1,95 +1,88 @@
-export function setState(state) {
-  return {type: 'SET_STATE',state};
-}
-export function resetGame() {
-  return {
-    type: 'INITIAL_STATE'
-  };
-}
-export function sendMessage(message){
-  return {
-    meta: {remote: true},
-    type: 'MESSAGE_SEND',
-    message: message
-  }
-}
 export function setUsername(username) {
   return {
     type: 'USERNAME',
     username: username
   };
 }
-export function setRoom(room) {
+export function createRoom(room) {
   return {
-    type: 'ROOM',
+    type: 'CREATE_ROOM',
     room: room
   };
 }
-
-export function messageReceived(username,message) {
+export function joinRoom(roomST) {
   return {
-    type: 'MESSAGE_RECEIVED',
-    username: username,
-    message: message
-  }
-}
-export function startGame() {
-  return {
-    meta: {remote: true},
-    type: 'START_GAME'
+    type: 'JOIN_ROOM',
+    roomST: roomST
   };
 }
-export function joinGame(){
+export function leaveRoom() {
   return {
-    meta: {remote: true},
-    type: 'JOIN_GAME'
-  }
+    type: 'LEAVE_ROOM'
+  };
 }
-export function leaveGame() {
+export function userJoinedRoom(username) {
   return {
-    meta: {remote: true},
-    type: 'LEAVE_GAME'
-  }
+    type: 'USER_JOINED_ROOM',
+    username: username
+  };
+}
+export function userLeftRoom(username) {
+  return {
+    type: 'USER_LEFT_ROOM',
+    username: username
+  };
+}
+export function createGame() {
+  return {
+    type: 'CREATE_GAME'
+  };
+}
+export function joinGame(username) {
+  return {
+    type: 'JOIN_GAME',
+    username: username
+  };
+}
+export function leaveGame(username) {
+  return {
+    type: 'LEAVE_GAME',
+    username: username
+  };
+}
+export function startGame(username) {
+  return {
+    type: 'START_GAME',
+    username: username
+  };
 }
 export function placePiece(grid, cell, playerId) {
   return {
-    meta: {remote: true},
-    type: 'PLACE',
+    type: 'PLACE_PIECE',
     grid: grid,
     cell: cell,
     playerId: playerId
   };
 }
-export function switchPlayer(){
+export function switchPlayer(playerId) {
   return {
-    meta: {remote: true},
-    type: 'SWITCH'
-  }
+    type: 'SWITCH_PLAYER',
+    playerId: playerId
+  };
 }
-export function createUsername(username) {
+export function message(username, message) {
   return {
-    meta: {remote: true},
-    type: 'CREATE_USERNAME',
-    username: username
-  }
+    type: 'MESSAGE',
+    username: username,
+    message: message
+  };
 }
-export function createRoom(room) {
-  return {
-    meta: {remote: true},
-    type: 'CREATE_ROOM',
-    room: room
-  }
-}
-export function joinRoom(room) {
-  return {
-    meta: {remote: true},
-    type: 'JOIN_ROOM',
-    room: room
-  }
-}
-export function leaveRoom() {
-  return {
-    meta: {remote: true},
-    type: 'LEAVE_ROOM'
-  }
-}
+
+
+
+// export function joinGame(){
+//   return {
+//     meta: {remote: true},
+//     type: 'JOIN_GAME'
+//   }
+// }

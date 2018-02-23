@@ -19,42 +19,42 @@
          "winner": 1
        },
        {
-         "grid": [1,1,1,0,0,0,0,0,0],
+         "grid": [1,1,0,0,0,0,0,0,0],
+         "selectable": true,
+         "winner": 0
+       },
+       {
+         "grid": [0,0,0,0,0,0,0,0,0],
          "selectable": false,
-         "winner": 1
-       },
-       {
-         "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
          "winner": 0
        },
        {
          "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
+         "selectable": false,
          "winner": 0
        },
        {
          "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
+         "selectable": false,
          "winner": 0
        },
        {
          "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
+         "selectable": false,
          "winner": 0
        },
        {
          "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
+         "selectable": false,
          "winner": 0
        },
        {
          "grid": [0,0,0,0,0,0,0,0,0],
-         "selectable": true,
+         "selectable": false,
          "winner": 0
        }
      ],
-     "winner": 1,
+     "winner": 0,
      "activePlayer": 1,
      "playerRange": [2,2],
      "players": {

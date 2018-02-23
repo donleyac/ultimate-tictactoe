@@ -1,0 +1,2921 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create/Join/Leave Room 1`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+    ],
+    users: Immutable.List [
+    ],
+  },
+}
+`;
+
+exports[`Create/Join/Leave Room 2`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+    ],
+    users: Immutable.List [
+    ],
+  },
+}
+`;
+
+exports[`Create/Join/Leave Room 3`] = `
+Immutable.Map {
+  username: "alex",
+}
+`;
+
+exports[`Game Setup 1`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 2`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 3`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 4`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+        jake: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 5`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+        jake: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 6`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 7`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: false,
+        jake: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 8`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: true,
+        jake: false,
+      },
+    },
+  },
+}
+`;
+
+exports[`Game Setup 9`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+        alex: -1,
+        jake: 1,
+      },
+    },
+  },
+}
+`;
+
+exports[`Initial State 1`] = `
+Immutable.Map {
+}
+`;
+
+exports[`Message 1`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+  },
+}
+`;
+
+exports[`Play Game 1`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 2`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: -1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 3`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: -1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 4`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: -1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 5`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: -1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 6`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: -1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 7`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 1,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 1,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 0,
+        },
+      ],
+      winner: 0,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Play Game 8`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+      Immutable.List [
+        "alex",
+        "what is up",
+      ],
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+    game: Immutable.Map {
+      board: Immutable.List [
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 1,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 1,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: false,
+          winner: 1,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+        Immutable.Map {
+          grid: Immutable.List [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+          ],
+          selectable: true,
+          winner: 0,
+        },
+      ],
+      winner: 1,
+      activePlayer: 1,
+      playerRange: Immutable.List [
+        2,
+        2,
+      ],
+      players: Immutable.Map {
+      },
+    },
+  },
+}
+`;
+
+exports[`Set Username 1`] = `
+Immutable.Map {
+  username: "alex",
+}
+`;
+
+exports[`User Join/Left 1`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+  },
+}
+`;
+
+exports[`User Join/Left 2`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+    ],
+    users: Immutable.List [
+    ],
+  },
+}
+`;
+
+exports[`User Join/Left 3`] = `
+Immutable.Map {
+  username: "alex",
+  room: Immutable.Map {
+    id: "apple",
+    chat: Immutable.List [
+    ],
+    users: Immutable.List [
+      "jake",
+    ],
+  },
+}
+`;
