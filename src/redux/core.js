@@ -31,11 +31,6 @@ export function userLeftRoom(state, username) {
     return index>=0?existingUsers.delete(index):existingUsers;
   });
 }
-export function message(state,username, message){
-  return state.updateIn(["room", "chat"],
-  0,
-  chat=>chat.push(List([username,message])));
-}
 export function createGame(state) {
   let board = new Array(9).fill({
     grid: new Array(9).fill(0),
@@ -108,43 +103,38 @@ function _assignGamePlayers(players){
   });
 }
 export function placePiece(state, grid, cell, playerId) {
-  let chosenCell = state.getIn(["room","game","board",grid,"grid",cell]);
-  let gridSelectable = state.getIn(["room","game","board",grid,"selectable"]);
-  if(playerId===state.getIn(["room","game","activePlayer"]) && chosenCell===0 && gridSelectable){
+  let chosenCell = state.getIn(["board",grid,"grid",cell]);
+  let gridSelectable = state.getIn(["board",grid,"selectable"]);
+  if(playerId===state.get("activePlayer") && chosenCell===0 && gridSelectable){
     //Place Piece in cells
     let placed = state.updateIn(
-      ["room", "game","board", grid, "grid", cell],
+      ["board", grid, "grid", cell],
       0,
       cell => playerId
     );
     //Check Winner in Grid
-    let gridState = placed.getIn(["room","game","board", grid,"grid"]);
-    let grid_winner = placed.setIn(["room","game","board", grid, "winner"],
+    let gridState = placed.getIn(["board", grid,"grid"]);
+    let grid_winner = placed.setIn(["board", grid, "winner"],
       checkWinner(gridState));
     //Set selectable
-    let selectable = grid_winner.updateIn(
-      ["room","game","board"],
-      0,
-      board => {
-        let new_board = new Array(9);
-        board.forEach((elem,g_index)=>{
-          //Grid Index Matches Cell Index or
-          //Everything but winning grids when won grid chosen
-          if((g_index===cell ||
-            board.get(cell).get("winner")) &&
-            !elem.get("winner")){
-            new_board[g_index]=elem.set("selectable", true);
-          }
-          else {
-            new_board[g_index]=elem.set("selectable", false);
-          }
-        });
-        return fromJS(new_board);
+    let board = grid_winner.get("board");
+    let new_board = new Array(9);
+    board.forEach((elem,g_index)=>{
+      //Grid Index Matches Cell Index or
+      //Everything but winning grids when won grid chosen
+      if((g_index===cell ||
+        board.get(cell).get("winner")) &&
+        !elem.get("winner")){
+        new_board[g_index]=elem.set("selectable", true);
       }
-    );
+      else {
+        new_board[g_index]=elem.set("selectable", false);
+      }
+    });
+    let selectable = grid_winner.set("board",fromJS(new_board));
     //Check Game Winner and change player
-    let boardState = selectable.getIn(["room","game","board"]);
-    let game_winner = selectable.setIn(["room","game","winner"],
+    let boardState = selectable.get("board");
+    let game_winner = selectable.set("winner",
      checkWinner(boardState));
     return game_winner;
   }
@@ -175,16 +165,15 @@ function checkWinner(board) {
   }
   return 0;
 }
-//TODO change so it's specific to room
 export function switchPlayer(state, player){
-  return state.updateIn(
-    ["room","game","activePlayer"],
-    0,
-    activePlayer => {
-      if(activePlayer===player){
-        return activePlayer*-1;
-      }
-      return activePlayer;
-    }
-  );
+  let activePlayer = state.get("activePlayer");
+  if(activePlayer===player){
+    return state.set("activePlayer",activePlayer*-1); 
+  }
+  return state;
+}
+export function message(state,username, message){
+  return state.updateIn(["room", "chat"],
+  0,
+  chat=>chat.push(List([username,message])));
 }

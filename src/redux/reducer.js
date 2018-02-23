@@ -29,11 +29,14 @@ export default function(state = INITIAL_STATE, action={}) {
       return leaveGame(state, action.username);
     case 'START_GAME':
       pathST = state.getIn(GAME_PATH);
-      return state.setIn(GAME_PATH,startGame(pathST, action.username));
+      return state.setIn(GAME_PATH, startGame(pathST, action.username));
     case 'PLACE_PIECE':
-      return placePiece(state, action.grid, action.cell, action.playerId);
+      pathST = state.getIn(GAME_PATH);
+      return state.setIn(GAME_PATH, 
+        placePiece(pathST, action.grid, action.cell, action.playerId));
     case 'SWITCH_PLAYER':
-      return switchPlayer(state, action.playerId);
+      pathST = state.getIn(GAME_PATH);
+      return state.setIn(GAME_PATH, switchPlayer(pathST,action.playerId))
     case 'MESSAGE':
       return message(state, action.username, action.message);
     default:
