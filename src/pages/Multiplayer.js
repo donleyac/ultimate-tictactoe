@@ -1,12 +1,15 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {List, Map} from 'immutable';
+import gql from 'graphql-tag';
+
 import * as actionCreators from './../redux/action_creators.js';
-import {emitTruncateAll} from './../socketClient.js';
 import InputForm from './../components/InputForm.js';
 import RoomLobby from './../components/RoomLobby.js';
 import Room from './../components/Room.js';
-import {List, Map} from 'immutable';
+import truncateAll from '../query'
+
 
 export class Multiplayer extends PureComponent {
   constructor(props) {
@@ -30,7 +33,8 @@ export class Multiplayer extends PureComponent {
     this.props.createUsername(username);
   }
   truncateAll(){
-    emitTruncateAll();
+    console.log(truncateAll);
+    truncateAll();
   }
   render() {
     return (

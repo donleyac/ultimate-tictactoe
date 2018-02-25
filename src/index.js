@@ -13,10 +13,15 @@ import socketClientImpl from './socketClient.js';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-import ApolloClient from 'apollo-client';
-import { graphql, ApolloProvider } from 'react-apollo';
-import gql from 'graphql-tag';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
+const client = new ApolloClient({
+  link: new HttpLink({ uri: `${window.location.protocol}//${window.location.hostname}:8090/graphql` }),
+  cache: new InMemoryCache()
+});
 
 export const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
 const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(
@@ -30,5 +35,7 @@ socketClientImpl();
 registerServiceWorker();
 ReactDOM.render(
 <Provider store={store}>
+  <ApolloProvider client={client}>
     {routes}
+  </ApolloProvider>
 </Provider>, document.getElementById('root'));
