@@ -1,41 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import {composeWithDevTools} from 'redux-devtools-extension';
-import {createStore, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
-import io from 'socket.io-client';
-
-import routes from './routes.js';
-import reducer from './redux/reducer.js';
-import socketMiddleware from './socketMiddleware.js';
-import socketClientImpl from './socketClient.js';
-import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+import routes from  './routes';
 
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
+// Apollo
+import { ApolloProvider } from 'react-apollo'
+import ApolloClient from 'apollo-client'
+import { ApolloLink } from 'apollo-link'
+import { WebSocketLink } from "apollo-link-ws";
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
+// Redux
+import { Provider } from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {createStore, applyMiddleware} from 'redux';
+import reducer from './redux/reducer.js';
+
+// GraphQL via Apollo
+const hasSubscriptionOperation = ({ query: { definitions } }) =>
+  definitions.some(
+    ({ kind, operation }) =>
+      kind === 'OperationDefinition' && operation === 'subscription',
+  )
+
+const link = ApolloLink.split(
+  hasSubscriptionOperation,
+  new WebSocketLink({
+    uri:
+    'ws://localhost:4010/subscriptions',
+    options: { reconnect: true },
+  }),
+  new HttpLink({
+    uri: '/graphql' // Your GraphQL endpoint
+  }),
+);
+
 const client = new ApolloClient({
-  link: new HttpLink({ uri: `${window.location.protocol}//${window.location.hostname}:8090/graphql` }),
-  cache: new InMemoryCache()
+  link,
+  cache: new InMemoryCache(window.__APOLLO_STATE__),
 });
 
-export const socket = io(`${window.location.protocol}//${window.location.hostname}:8090`);
-const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(
-  socketMiddleware(socket)
-))(createStore);
-export const store = createStoreWithMiddleware(reducer);
-//Socket on and emits
-socketClientImpl();
-//In prod, we register a service worker to serve assets from local cache.
-//May not work on ios devices.
-registerServiceWorker();
 ReactDOM.render(
-<Provider store={store}>
+  // <Provider store={store}>
+  //   <ApolloProvider client={client}>
+  //     {routes}
+  //   </ApolloProvider>
+  // </Provider>,
   <ApolloProvider client={client}>
     {routes}
-  </ApolloProvider>
-</Provider>, document.getElementById('root'));
+  </ApolloProvider>,
+  document.getElementById('root')
+);
+registerServiceWorker();
