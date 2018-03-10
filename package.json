@@ -106,5 +106,13 @@
     "react-router-dom": "^4.2.2",
     "redux-devtools-extension": "^2.13.2",
     "socket.io-client": "^2.0.3"
+  },
+  "proxy": {
+    "/graphql": {
+      "target": "http://localhost:4010"
+    },
+    "/graphiql": {
+      "target": "http://localhost:4010"
+    }
   }
 }
