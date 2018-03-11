@@ -2,34 +2,34 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {compose, mapProps} from 'recompose';
 import {graphql} from 'react-apollo';
-import ChatroomRow from './Row';
+import RoomRow from './Row';
 
-const chatrooms = gql`
+const rooms = gql`
 {
-  chatrooms {
+  rooms {
     id
     title
   }
 }
 `;
 
-function Chatroom({chatrooms = []}) {
+function Chatroom({rooms = []}) {
   return (
     <section>
-      <h1 className="title">Chatrooms</h1>
-      {chatrooms.map(room => {
-        return <ChatroomRow key={room.id} title={room.title} id={room.id} />;
+      <h1 className="title">Rooms</h1>
+      {rooms.map(room => {
+        return <RoomRow key={room.id} title={room.title} id={room.id} />;
       })}
     </section>
   );
 }
 
 export default compose(
-  graphql(chatrooms),
+  graphql(rooms),
   mapProps(({data, ...rest}) => {
-    const chatrooms = (data && data.chatrooms) || [];
+    const rooms = (data && data.rooms) || [];
     return {
-      chatrooms,
+      rooms,
       ...rest,
     };
   })

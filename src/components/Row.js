@@ -11,7 +11,7 @@ function ChatroomRow({
 }) {
   if (!isActive) {
     return (
-      <button className="chatroom" key={id} onClick={openMessages}>
+      <button className="room" key={id} onClick={openMessages}>
         {title}
       </button>
     );

@@ -10,8 +10,8 @@ function SendMessageButton({sendMessage}) {
 };
 
 const addMessage = gql`
-  mutation add($text: String!, $userId: Int!, $chatroomId: Int!) {
-    addMessage(text: $text, userId: $userId, chatroomId: $chatroomId) {
+  mutation add($text: String!, $userId: Int!, $roomId: Int!) {
+    addMessage(text: $text, userId: $userId, roomId: $roomId) {
       text
     }
   }
@@ -26,7 +26,7 @@ export default compose(
           variables: {
             text: message,
             userId: 1,
-            chatroomId: id,
+            roomId: id,
           },
         })
           .then(data => {

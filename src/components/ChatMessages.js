@@ -6,9 +6,9 @@ import {compose, mapProps, lifecycle} from 'recompose';
 import {graphql} from 'react-apollo';
 import MessageBox from './MessageBox';
 
-const chatroom = gql`
+const room = gql`
   query chatRoom($id: Int!) {
-    chatroom(id: $id) {
+    room(id: $id) {
       messages {
         id
         text
@@ -18,8 +18,8 @@ const chatroom = gql`
 `;
 
 const messageAdded = gql`
-  subscription onMessageAdded($chatroomId: Int!){
-    messageAdded(chatroomId: $chatroomId){
+  subscription onMessageAdded($roomId: Int!){
+    messageAdded(roomId: $roomId){
       id
       text
     }
@@ -45,7 +45,7 @@ function ChatMessages({closeMessages, ready, title, id, messages}) {
 }
 
 export default compose(
-  graphql(chatroom, {
+  graphql(room, {
     options: ({id}) => {
       return {
         variables: {
@@ -56,7 +56,7 @@ export default compose(
   }),
   mapProps(({data, id, ...rest}) => {
     const subscribeToMore = data && data.subscribeToMore;
-    const messages = data && data.chatroom && data.chatroom.messages;
+    const messages = data && data.room && data.room.messages;
     return {
       id,
       ready: !data.loading,
@@ -65,7 +65,7 @@ export default compose(
         return subscribeToMore({
           document: messageAdded,
           variables: {
-            chatroomId: id,
+            roomId: id,
           },
           onError: (e) => {
             return console.error('APOLLO-CHAT', e);
@@ -81,7 +81,7 @@ export default compose(
             const messageToAdd = get(subscriptionData, 'data.messageAdded');
 
             const newResult = update(previousResult, {
-              chatroom: {
+              room: {
                 messages: {
                   $push: [messageToAdd],
                 },
